@@ -1,4 +1,4 @@
-### tuke compiler
+# tuke compiler
 a compiler from a custom language, tuke compiler, to URCL.
 
 ## usage
