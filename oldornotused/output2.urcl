@@ -1,0 +1,7 @@
+STR 0, 0
+STR 1, 0
+STR 2, 0
+LOD R3, 2
+LOD R2, 1
+ADD R1, R2, R3
+STR 0, R1

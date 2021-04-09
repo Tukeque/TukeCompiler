@@ -1,0 +1,5 @@
+num count = 5 ;
+quick substractor = 20 ;
+
+count + 35 ;
+count - substractor ;

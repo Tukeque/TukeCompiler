@@ -1,0 +1,15 @@
+num count = 5 ;
+quick subtractor = 20 ;
+
+count = count + 35 ;
+count = count - subtractor ;
+
+quick newquick = 15 ;
+free subtractor ;
+num newcount = count ;
+free count ;
+
+newcount = newcount - newquick ;
+
+num final = newcount ;
+free newcount ; # serves no purpose because final is already at the next address

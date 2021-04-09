@@ -1,0 +1,7 @@
+STR 0, 5
+IMM R1, 20
+IMM R1, 15
+LOD R2, 0
+STR 1, R2
+STR 0, 0
+STR 0, 69

@@ -1,0 +1,18 @@
+This brain file explains the inner compilation mechanisms to compile operands
+
+** x_reg = y_reg + z_reg:
+"ADD X_REG_r, Y_REG_r, Z_REG_r"
+
+** x_reg = y_ram + z_ram:
+"""
+LOD 0, Y_RAM_p
+LOD 1, Z_RAM_p
+ADD X_REG_r, 0, 1
+"""
+
+Conclusion:
+Regs will have the index be displaced by 3, to allow the first 3 regs to be cache regs for operations with ram variables
+
+Basically, when <reg = ram + ram>, you allocate 2 quick variables, ram1 and ram2 to be used in the operation to have it dynamically allocated. Ofcourse you free them later
+
+lol this was made for me to under stand
