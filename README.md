@@ -1,5 +1,5 @@
 # tuke compiler
-a compiler from a custom language, tuke compiler, to URCL.
+a compiler from a custom language, tuke language, to URCL.
 
 ## usage
 from the command line, run:
