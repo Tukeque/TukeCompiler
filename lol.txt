@@ -1,10 +1,11 @@
-func name arg1 arg2 {
-    var ram result = arg1 + arg2 ;
+func name arg1 : num , arg2 : num {
+    num result = arg1 + arg2 ;
+
     return result ;
 }
 
 ### function to showcase quicks ###
-func bruhShowcase myArgument1 myArgument2 { # return myArgument1 times myArgument2. myArgument1 and myArgument2 are RAM variables
+func bruhShowcase myArgument1 : num , myArgument2 : num { # return myArgument1 times myArgument2. myArgument1 and myArgument2 are RAM variables
     quick myQuickVariable = myArgument1 ;
     quick myOtherQuickVariable = myArgument2 ;
     # quick variables are stored in regs but are assigned by the programmer, to optimize code
@@ -15,7 +16,7 @@ func bruhShowcase myArgument1 myArgument2 { # return myArgument1 times myArgumen
 }
 
 ### function to showcase freeing of stuff
-func bruhShowcase2 arg1 arg2 {
+func bruhShowcase2 arg1 : num , arg2 : num {
     quick quick1 = arg1 ;
     quick quick2 = arg2 ;
 
@@ -27,14 +28,14 @@ func bruhShowcase2 arg1 arg2 {
 
     quick quick5 = quick3 + quick4 ;
     return quick5 ;
-    # all variables get automatically freed up when ending a variable
+    # all variables get automatically freed up when ending a function
 }
 
 ### objects?
 obj myCool inheritedClass? {
-    byte x = 4 ;
-    byte y = 42 ;
-    byte zx = 23 ;
+    num x = 4 ;
+    num y = 42 ;
+    num zx = 23 ;
 
     func myCool sixtyNine : int { # dumb constructor
         quick sixtynineplusone = sixtyNine + 1
@@ -57,7 +58,7 @@ func random scoolar : int {
     return u + n ;
 }
 
-func coolfunc coolarg1 : byte coolarg2 : byte { # showcasing argument types
+func coolfunc coolarg1 : byte , coolarg2 : byte { # showcasing argument types
     myCool objectfriend = construct myCool 69 ; # showcasing how to construct a class
 
     int lol = objectfriend . zx ; # accessing a class

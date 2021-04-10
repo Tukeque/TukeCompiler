@@ -1,8 +1,0 @@
-var ram ram1 = 0
-var ram ram2 = 0
-var ram ram3 = 0
-
-ram1 = ram2 + ram3
-
-del ram2
-del ram3
