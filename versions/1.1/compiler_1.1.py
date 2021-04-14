@@ -1,6 +1,5 @@
 from typing import List
 import sys
-from rich import print # optional
 
 ### code variables
 codefile: str = "code.txt"
@@ -18,6 +17,7 @@ if len(sys.argv) > 3:
 ### urcl variables
 urcl: list = []
 urclfuncs: list = []
+funcs: list[list[str]] = [[]]
 
 ### variables
 nextvariableidentifier = 0
@@ -368,7 +368,7 @@ def compileblock(block: List[str]):
     else:
         error("block has no brackets defining scope? what")
 
-def compilebrick(brick: List[str]):
+def compilebrick(brick: List[str], func = False, funcidentifier = 0):
     global urcl, tempvars
 
     length = len(brick)
@@ -380,20 +380,28 @@ def compilebrick(brick: List[str]):
 
         if length > 2: # (num a = x / num a = x + y) (variable setting or variable setting by operation)
             compilebrick(brick[1:])
+        elif length == 2:
+            pass
         else:
             error(f"invalid syntax in brick {brick}")
 
     elif brick[1] == "=": # setting a var to some value
         if length == 3: # a = x
             result, quick = set(brick[0], brick[2])
-            urcl.append(result)
+            if not func:
+                urcl.append(result)
+            else:
+                funcs[funcidentifier].append(result)
 
             if quick != None:
                 free(quick)
 
         elif length == 5: # a = x + y
             result, quicks = operation(brick[3], brick[0], brick[2], brick[4])
-            urcl.append(result)
+            if not func:
+                urcl.append(result)
+            else:
+                funcs[funcidentifier].append(result)
 
             for quick in quicks:
                 free(quick)
@@ -440,6 +448,7 @@ def main():
 
     tokenize()
     compile(tokens)
+    urcl += "\nHLT"
 
     print(f"\ndone compiling!\n{(f'encountered {errors} errors' if haderror else 'succesfully compiled wooo')}\n")
     printvariables()
