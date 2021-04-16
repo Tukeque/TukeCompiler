@@ -105,7 +105,7 @@ class Func:
         funcidentifier += 1
 
     def print(self):
-        print(f"function {self.name} with identifier {self.identifier}")
+        print(f"function {self.name} with identifier {self.identifier} and return type {self.returntype}")
 
 ### errors
 haderror: bool = False
@@ -529,7 +529,8 @@ def compilebrick(brick: List[str], func = False, funcidentifier = 0):
 
         urcl.append(f"CAL .func_{brick[0]}")
 
-        funcobjs[brick[0]]
+        if funcobjs[brick[0]].returntype != "void":
+            urcl.append(f"POP R0") # void the return
 
     elif brick[0] == "free":
         if invars(brick[1]):
