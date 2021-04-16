@@ -440,6 +440,8 @@ def storeresult():
 
 ### main
 def main():
+    global urcl
+
     clean()
 
     print("TUKE COMPILER (c) 2021\nEnjoy your stay\n")
@@ -448,7 +450,7 @@ def main():
 
     tokenize()
     compile(tokens)
-    urcl += "\nHLT"
+    urcl.append("HLT")
 
     print(f"\ndone compiling!\n{(f'encountered {errors} errors' if haderror else 'succesfully compiled wooo')}\n")
     printvariables()
