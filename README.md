@@ -1,6 +1,8 @@
 # tuke compiler
 a compiler from a custom language, tuke language, to URCL.
 
+NOTE: this project is archived and wont recieve any more updates(since its bad) and i have made another compiler(Tukpiler), which a way better language and way better code. check it out in my github
+
 ## usage
 from the command line, run:
 ```
